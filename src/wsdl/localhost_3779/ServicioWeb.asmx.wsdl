@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/WebServiceTaxyEmp" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://localhost/WebServiceTaxyEmp" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/WebServiceTaxyEmp">
+      <s:element name="ConsultarServicioRutaDisponiblePorDia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fecha" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarServicioRutaDisponiblePorDiaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarServicioRutaDisponiblePorDiaResult" type="tns:ArrayOfTaxyServicioEntity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTaxyServicioEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TaxyServicioEntity" nillable="true" type="tns:TaxyServicioEntity" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TaxyServicioEntity">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodServicio" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DesRutaIni" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DesRutaFin" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CostoRuta" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecServicio" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ReservarServicioRuta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codUser" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="codServicio" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReservarServicioRutaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReservarServicioRutaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarServicioRutaDisponiblePorUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codUser" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarServicioRutaDisponiblePorUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarServicioRutaDisponiblePorUsuarioResult" type="tns:ArrayOfTaxyReservaEntity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTaxyReservaEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TaxyReservaEntity" nillable="true" type="tns:TaxyReservaEntity" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TaxyReservaEntity">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodReserva" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodUser" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodServicio" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecReserva" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CostoRuta" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstReserva" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomUser" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DesRutaIni" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DesRutaFin" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecServicio" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CancelarReservaRuta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codReserva" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelarReservaRutaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CancelarReservaRutaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultarServicioRutaDisponiblePorDiaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarServicioRutaDisponiblePorDia" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarServicioRutaDisponiblePorDiaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarServicioRutaDisponiblePorDiaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReservarServicioRutaSoapIn">
+    <wsdl:part name="parameters" element="tns:ReservarServicioRuta" />
+  </wsdl:message>
+  <wsdl:message name="ReservarServicioRutaSoapOut">
+    <wsdl:part name="parameters" element="tns:ReservarServicioRutaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarServicioRutaDisponiblePorUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarServicioRutaDisponiblePorUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarServicioRutaDisponiblePorUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarServicioRutaDisponiblePorUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelarReservaRutaSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelarReservaRuta" />
+  </wsdl:message>
+  <wsdl:message name="CancelarReservaRutaSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelarReservaRutaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceTaxyEmpSoap">
+    <wsdl:operation name="ConsultarServicioRutaDisponiblePorDia">
+      <wsdl:input message="tns:ConsultarServicioRutaDisponiblePorDiaSoapIn" />
+      <wsdl:output message="tns:ConsultarServicioRutaDisponiblePorDiaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReservarServicioRuta">
+      <wsdl:input message="tns:ReservarServicioRutaSoapIn" />
+      <wsdl:output message="tns:ReservarServicioRutaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarServicioRutaDisponiblePorUsuario">
+      <wsdl:input message="tns:ConsultarServicioRutaDisponiblePorUsuarioSoapIn" />
+      <wsdl:output message="tns:ConsultarServicioRutaDisponiblePorUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarReservaRuta">
+      <wsdl:input message="tns:CancelarReservaRutaSoapIn" />
+      <wsdl:output message="tns:CancelarReservaRutaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceTaxyEmpSoap" type="tns:WebServiceTaxyEmpSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarServicioRutaDisponiblePorDia">
+      <soap:operation soapAction="http://localhost/WebServiceTaxyEmp/ConsultarServicioRutaDisponiblePorDia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReservarServicioRuta">
+      <soap:operation soapAction="http://localhost/WebServiceTaxyEmp/ReservarServicioRuta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarServicioRutaDisponiblePorUsuario">
+      <soap:operation soapAction="http://localhost/WebServiceTaxyEmp/ConsultarServicioRutaDisponiblePorUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarReservaRuta">
+      <soap:operation soapAction="http://localhost/WebServiceTaxyEmp/CancelarReservaRuta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceTaxyEmpSoap12" type="tns:WebServiceTaxyEmpSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultarServicioRutaDisponiblePorDia">
+      <soap12:operation soapAction="http://localhost/WebServiceTaxyEmp/ConsultarServicioRutaDisponiblePorDia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReservarServicioRuta">
+      <soap12:operation soapAction="http://localhost/WebServiceTaxyEmp/ReservarServicioRuta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarServicioRutaDisponiblePorUsuario">
+      <soap12:operation soapAction="http://localhost/WebServiceTaxyEmp/ConsultarServicioRutaDisponiblePorUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarReservaRuta">
+      <soap12:operation soapAction="http://localhost/WebServiceTaxyEmp/CancelarReservaRuta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceTaxyEmp">
+    <wsdl:port name="WebServiceTaxyEmpSoap" binding="tns:WebServiceTaxyEmpSoap">
+      <soap:address location="http://localhost:3779/ServicioWeb.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceTaxyEmpSoap12" binding="tns:WebServiceTaxyEmpSoap12">
+      <soap12:address location="http://localhost:3779/ServicioWeb.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
