@@ -6,82 +6,81 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
-
-import pe.edu.upc.dsd.taxiempresarial.useful.JdbcUtils;
 import pe.edu.upc.dsd.taxiempresarial.exception.DaoException;
 import pe.edu.upc.dsd.taxiempresarial.model.Empresa;
+import pe.edu.upc.dsd.taxiempresarial.useful.JdbcUtils;
 
-public class EmpresaDao extends BaseDao{
+public class EmpresaDao extends BaseDao {
 
-	public Collection<Empresa> buscarEmpresaPorCodigo(String cod) throws DaoException {
+    public Collection<Empresa> buscarEmpresaPorCodigo(String cod) throws DaoException {
 
-		String query = "SELECT cod_emp, raz_soc_emp " +
-					   "FROM Tb_Empresa " +
-					   "WHERE cod_emp = ?";
+        String query = "SELECT cod_emp, raz_soc_emp "
+                        + "FROM Tb_Empresa "
+                        + "WHERE cod_emp = ?";
 
-		Collection<Empresa> lista = new ArrayList<Empresa>();
-		Connection con = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
+        Collection<Empresa> lista = new ArrayList<Empresa>();
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
 
-		try {
-			con = JdbcUtils.getConnection();
-			stmt = con.prepareStatement(query);
-			stmt.setString(1, "%" + cod + "%");
-			rs = stmt.executeQuery();
+        try {
+            con = JdbcUtils.getConnection();
+            stmt = con.prepareStatement(query);
+            stmt.setString(1, "%" + cod + "%");
+            rs = stmt.executeQuery();
 
-			while (rs.next()) {
-				Empresa empresa = new Empresa();
+            while (rs.next()) {
+                Empresa empresa = new Empresa();
 
-				empresa.setCod_emp(rs.getString(1));
-				empresa.setRaz_soc_emp(rs.getString(2));
+                empresa.setCod_emp(rs.getInt(1));
+                empresa.setRaz_soc_emp(rs.getString(2));
 
-				lista.add(empresa);
-			}
-		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-			throw new DaoException(e.getMessage());
-		} finally {
-			this.cerrarResultSet(rs);
-			this.cerrarStatement(stmt);
-			this.cerrarConexion(con);
-		}
-		return lista;
-	}
+                lista.add(empresa);
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            throw new DaoException(e.getMessage());
+        } finally {
+            this.cerrarResultSet(rs);
+            this.cerrarStatement(stmt);
+            this.cerrarConexion(con);
+        }
+        return lista;
+    }
 
-	public Collection<Empresa> listarEmpresas() throws DaoException {
+    public Collection<Empresa> listarEmpresas() throws DaoException {
 
-		String query = "SELECT cod_emp, raz_soc_emp " +
-					   "FROM Tb_Empresa " +
-					   "WHERE cod_emp = ?";
-		
-		Collection<Empresa> lista = new ArrayList<Empresa>();
-		Connection con = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
+        String query = "SELECT cod_emp, raz_soc_emp "
+                + "FROM Tb_Empresa "
+                + "WHERE cod_emp = ?";
 
-		try {
-			con = JdbcUtils.getConnection();
-			stmt = con.prepareStatement(query);
+        Collection<Empresa> lista = new ArrayList<Empresa>();
+        Connection con = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
 
-			rs = stmt.executeQuery();
+        try {
+            con = JdbcUtils.getConnection();
+            stmt = con.prepareStatement(query);
 
-			while (rs.next()) {
-				Empresa empresa = new Empresa();
+            rs = stmt.executeQuery();
 
-				empresa.setCod_emp(rs.getString(1));
-				empresa.setRaz_soc_emp(rs.getString(2));
+            while (rs.next()) {
+                Empresa empresa = new Empresa();
 
-				lista.add(empresa);
-			}
-		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-			throw new DaoException(e.getMessage());
-		} finally {
-			this.cerrarResultSet(rs);
-			this.cerrarStatement(stmt);
-			this.cerrarConexion(con);
-		}
-		return lista;
-	}
+                empresa.setCod_emp(rs.getInt(1));
+                empresa.setRaz_soc_emp(rs.getString(2));
+
+                lista.add(empresa);
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            throw new DaoException(e.getMessage());
+        } finally {
+            this.cerrarResultSet(rs);
+            this.cerrarStatement(stmt);
+            this.cerrarConexion(con);
+        }
+        return lista;
+    }
 }

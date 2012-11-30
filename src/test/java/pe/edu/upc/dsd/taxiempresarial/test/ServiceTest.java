@@ -15,20 +15,21 @@ public class ServiceTest {
 
     @Test
     public void testConsultarServicioRutaDisponiblePorDia() {
+        
         UsefulMethods formatter = new UsefulMethods();
 
         try {
-            //
+            
             WebServiceTaxyEmpSoap port = callWebService();
 
             GregorianCalendar date1 = new GregorianCalendar();
 
-            date1.setTime(formatter.fromStringToDate("02-12-2011"));
+            date1.setTime(formatter.fromStringToDate("01-12-2012"));	//'dd-mm-aaaa'
             XMLGregorianCalendar date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(date1);
 
             pe.edu.upc.dsd.taxiempresarial.wsdlservice.ArrayOfTaxyServicioEntity result = port.consultarServicioRutaDisponiblePorDia(date2);
 
-            assertEquals(2, result.getTaxyServicioEntity().size());
+            assertEquals(8, result.getTaxyServicioEntity().size());
             
         } catch (Exception ex) {
         }
@@ -55,11 +56,11 @@ public class ServiceTest {
         try {
             WebServiceTaxyEmpSoap port = callWebService();
 
-            int codUser = 1;
+            int codUser = 3;
 
             pe.edu.upc.dsd.taxiempresarial.wsdlservice.ArrayOfTaxyReservaEntity result = port.consultarServicioRutaDisponiblePorUsuario(codUser);
 
-            assertEquals(2, result.getTaxyReservaEntity().size());
+            assertEquals(1, result.getTaxyReservaEntity().size());
 
         } catch (Exception ex) {
         }
@@ -78,7 +79,6 @@ public class ServiceTest {
 
         } catch (Exception ex) {
         }
-
     }
 
     public WebServiceTaxyEmpSoap callWebService() {
