@@ -21,6 +21,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="fecha" type="{http://www.w3.org/2001/XMLSchema}dateTime"/>
+ *         &lt;element name="codEmp" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,7 +32,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "fecha"
+    "fecha",
+    "codEmp"
 })
 @XmlRootElement(name = "ConsultarServicioRutaDisponiblePorDia")
 public class ConsultarServicioRutaDisponiblePorDia {
@@ -39,6 +41,7 @@ public class ConsultarServicioRutaDisponiblePorDia {
     @XmlElement(required = true)
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar fecha;
+    protected int codEmp;
 
     /**
      * Gets the value of the fecha property.
@@ -62,6 +65,22 @@ public class ConsultarServicioRutaDisponiblePorDia {
      */
     public void setFecha(XMLGregorianCalendar value) {
         this.fecha = value;
+    }
+
+    /**
+     * Gets the value of the codEmp property.
+     * 
+     */
+    public int getCodEmp() {
+        return codEmp;
+    }
+
+    /**
+     * Sets the value of the codEmp property.
+     * 
+     */
+    public void setCodEmp(int value) {
+        this.codEmp = value;
     }
 
 }

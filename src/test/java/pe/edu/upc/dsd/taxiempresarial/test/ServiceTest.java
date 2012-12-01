@@ -11,35 +11,41 @@ import org.junit.Test;
 
 import pe.edu.upc.dsd.taxiempresarial.useful.UsefulMethods;
 
+//Pop up jsp
+//<td>
+//<a href = "javascript:abrir('<%= request.getContextPath() %>/SeleccionarServicioServlet');">seleccionar</a>
+//</td>
+
 public class ServiceTest {
 
+    UsefulMethods useful = new UsefulMethods();   
+    
     @Test
     public void testConsultarServicioRutaDisponiblePorDia() {
         
-        UsefulMethods formatter = new UsefulMethods();
-
         try {
             
-            WebServiceTaxyEmpSoap port = callWebService();
+            WebServiceTaxyEmpSoap port = useful.callWebService();
 
             GregorianCalendar date1 = new GregorianCalendar();
 
-            date1.setTime(formatter.fromStringToDate("01-12-2012"));	//'dd-mm-aaaa'
+            date1.setTime(useful.fromStringToDate("01-12-2012"));	//'dd-mm-aaaa'
             XMLGregorianCalendar date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(date1);
 
-            pe.edu.upc.dsd.taxiempresarial.wsdlservice.ArrayOfTaxyServicioEntity result = port.consultarServicioRutaDisponiblePorDia(date2);
+            int codEmp = 1;
+            pe.edu.upc.dsd.taxiempresarial.wsdlservice.ArrayOfTaxyServicioEntity result = port.consultarServicioRutaDisponiblePorDia(date2, codEmp);
 
-            assertEquals(8, result.getTaxyServicioEntity().size());
+            assertEquals(4, result.getTaxyServicioEntity().size());
             
         } catch (Exception ex) {
-        }
+        }        
     }
-
+    
     @Test
     public void testReservarServicioRuta() {
 
         try {
-            WebServiceTaxyEmpSoap port = callWebService();
+            WebServiceTaxyEmpSoap port = useful.callWebService();
 
             int codUser = 1;
             int codServicio = 1;
@@ -54,7 +60,7 @@ public class ServiceTest {
     public void testConsultarServicioRutaDisponiblePorUsuario() {
 
         try {
-            WebServiceTaxyEmpSoap port = callWebService();
+            WebServiceTaxyEmpSoap port = useful.callWebService();
 
             int codUser = 3;
 
@@ -71,7 +77,7 @@ public class ServiceTest {
     public void testCancelarReservaRuta() {
 
         try {
-            WebServiceTaxyEmpSoap port = callWebService();
+            WebServiceTaxyEmpSoap port = useful.callWebService();
 
             int codReserva = 2;
 
@@ -79,12 +85,5 @@ public class ServiceTest {
 
         } catch (Exception ex) {
         }
-    }
-
-    public WebServiceTaxyEmpSoap callWebService() {
-        // Call Web Service Operation
-        pe.edu.upc.dsd.taxiempresarial.wsdlservice.WebServiceTaxyEmp service = new pe.edu.upc.dsd.taxiempresarial.wsdlservice.WebServiceTaxyEmp();
-        pe.edu.upc.dsd.taxiempresarial.wsdlservice.WebServiceTaxyEmpSoap port = service.getWebServiceTaxyEmpSoap();
-        return port;
-    }
+    }   
 }

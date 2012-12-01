@@ -3,7 +3,7 @@ package pe.edu.upc.dsd.taxiempresarial.model;
 
 public class Servicio {
 
-    private String cod_Servicio;
+    private String cod_servicio;
     private String cod_user;
     private String fec_servicio;
     private String nom_chofer;
@@ -17,10 +17,10 @@ public class Servicio {
 	}
 	
 	public String getCod_Servicio() {
-		return cod_Servicio;
+		return cod_servicio;
 	}
 	public void setCod_Servicio(String codServicio) {
-		this.cod_Servicio = codServicio;
+		this.cod_servicio = codServicio;
 	}
 	public String getCod_user() {
 		return cod_user;

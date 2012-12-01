@@ -10,9 +10,17 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import pe.edu.upc.dsd.taxiempresarial.wsdlservice.WebServiceTaxyEmpSoap;
 
 public final class UsefulMethods {
 
+    public WebServiceTaxyEmpSoap callWebService() {
+        // Call Web Service Operation
+        pe.edu.upc.dsd.taxiempresarial.wsdlservice.WebServiceTaxyEmp service = new pe.edu.upc.dsd.taxiempresarial.wsdlservice.WebServiceTaxyEmp();
+        pe.edu.upc.dsd.taxiempresarial.wsdlservice.WebServiceTaxyEmpSoap port = service.getWebServiceTaxyEmpSoap();
+        return port;
+    }
+    
     //Devuelve un java.util.Date desde un String en formato dd-MM-yyyy    
     public static synchronized java.util.Date fromStringToDate(String date)
     {
