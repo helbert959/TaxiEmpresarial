@@ -13,7 +13,7 @@
             <%=session.getAttribute("msg")%>
         </p>
         <p class="center">
-            <a href="/Home.jsp"> Portal </a>
+            <a href="/home.jsp"> Portal </a>
         </p>
      </body>
 </html>

@@ -28,7 +28,7 @@ monthNames[9] = "Octubre";
 monthNames[10] = "Noviembre";
 monthNames[11] = "Diciembre";
 
-// Array de los días
+// Array de los dï¿½as
 
 var dayNames = new makeArray(7);
 dayNames[0] = "Domingo";
@@ -110,33 +110,30 @@ document.write( dayNames[now.getDay()] + " " + now.getDate() + " de " + monthNam
 // -->
                 </script>
 
-	          </p>
-              <p>Busque y reserve los servicios según los criterios ingresados</p>
+	            <select name="cboHoraReserva" id="cboHoraReserva">
+	              <option>08:00</option>
+	              <option>09:00</option>
+	              <option>10:00</option>
+	              <option>11:00</option>
+	              <option>12:00</option>
+	              <option>13:00</option>
+	              <option>14:00</option>
+	              <option>15:00</option>
+	              <option>16:00</option>
+	              <option>17:00</option>
+	              <option>18:00</option>
+	              <option>19:00</option>
+	              <option>20:00</option>
+	              <option>21:00</option>
+                </select>
+			  </p>
+              <p>Busque y reserve los servicios segï¿½n los criterios ingresados</p>
 
 		          <form id="form1" method="post" action="">
 		            <p>
 		              <label></label>
 	                </p>
-		            <p><strong>Hora de Reserva :</strong>
-		              <label>
-		              <select name="cboHoraReserva" id="cboHoraReserva">
-		                <option>08:00</option>
-		                <option>09:00</option>
-		                <option>10:00</option>
-		                <option>11:00</option>
-		                <option>12:00</option>
-		                <option>13:00</option>
-		                <option>14:00</option>
-		                <option>15:00</option>
-		                <option>16:00</option>
-		                <option>17:00</option>
-		                <option>18:00</option>
-		                <option>19:00</option>
-		                <option>20:00</option>
-		                <option>21:00</option>
-                          </select>
-		              </label>
-		            </p>
+		            <p><strong>Hora de Reserva :</strong></p>
 	                <p align="right">
                       <label >
                       <input type="button" name="btnBuscar" id="btnBuscar" value="Buscar" onclick="javascript:mostrar();"/>

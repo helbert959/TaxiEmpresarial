@@ -6,6 +6,7 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="fecha" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="codEmp" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>

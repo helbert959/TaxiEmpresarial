@@ -12,10 +12,10 @@ http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
     <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 
-    <bean id="servicioTaxiImpl" class="pe.edu.upc.dew.taxiseguro.service.ServicioTaxiImpl"/>
+    <!-- <bean id="servicioTaxiImpl" class="pe.edu.upc.dew.taxiseguro.service.ServicioTaxiImpl"/>
     
     <jaxws:endpoint
 	  id="servicioTaxi"
 	  implementor="#servicioTaxiImpl"
-	  address="/ServicioTaxi" />
+	  address="/ServicioTaxi" />  -->
 </beans>

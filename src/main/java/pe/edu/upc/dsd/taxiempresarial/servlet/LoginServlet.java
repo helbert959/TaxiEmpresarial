@@ -51,7 +51,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet implements
 			rd.forward(request, response);
 		} catch (LoginException e) {
 			System.err.println("LoginServlet: Error(LoginException)");
-			RequestDispatcher rd = request.getRequestDispatcher("/error_login.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/errorLogin.jsp");
 			rd.forward(request, response);
 		}
 

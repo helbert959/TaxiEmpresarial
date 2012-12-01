@@ -36,11 +36,11 @@ public class PortalServlet extends HttpServlet {
 		Usuario usuario_actual = (Usuario)session.getAttribute("USUARIO_ACTUAL");	
 		
 		if (usuario_actual == null) {
-			request.getRequestDispatcher("error.jsp").forward(request, response);
+			request.getRequestDispatcher("/error.jsp").forward(request, response);
 			return;
 		}
 
-		RequestDispatcher rd = request.getRequestDispatcher("Portal_Cliente.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/portalCliente.jsp");
 		rd.forward(request, response);
 
 		return;

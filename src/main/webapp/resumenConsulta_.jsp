@@ -58,11 +58,11 @@
 					  <table width="650" border="0">
 						  <tr>
 						    <td width="79"><strong>Periodos:</strong></td>
-						    <td width="68"><form name="form1" method="post" action="">					      				       
+						    <td width="68"><form name="form1" method="post" action="resumenConsulta_.jsp">					      				       
 						      <input type="radio" name="periodo" value="Actual" CHECKED>Actual
 						      <input type="radio" name="periodo" value="Otros">Otros				      
 					       </form></td>
-						    <td width="251"><form name="form2" method="post" action="">			    
+						    <td width="251"><form name="form2" method="post" action="resumenConsulta_.jsp">			    
 						      <select name="listaOtrosPeridos">
                                 <option value="04">Abril</option>
                                 <option value="05">Mayo</option>

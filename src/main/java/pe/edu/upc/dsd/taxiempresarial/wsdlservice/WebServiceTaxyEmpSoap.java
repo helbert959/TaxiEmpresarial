@@ -27,6 +27,7 @@ public interface WebServiceTaxyEmpSoap {
     /**
      * 
      * @param fecha
+     * @param codEmp
      * @return
      *     returns localhost.webservicetaxyemp.ArrayOfTaxyServicioEntity
      */
@@ -36,7 +37,9 @@ public interface WebServiceTaxyEmpSoap {
     @ResponseWrapper(localName = "ConsultarServicioRutaDisponiblePorDiaResponse", targetNamespace = "http://localhost/WebServiceTaxyEmp", className = "localhost.webservicetaxyemp.ConsultarServicioRutaDisponiblePorDiaResponse")
     public ArrayOfTaxyServicioEntity consultarServicioRutaDisponiblePorDia(
         @WebParam(name = "fecha", targetNamespace = "http://localhost/WebServiceTaxyEmp")
-        XMLGregorianCalendar fecha);
+        XMLGregorianCalendar fecha,
+        @WebParam(name = "codEmp", targetNamespace = "http://localhost/WebServiceTaxyEmp")
+        int codEmp);
 
     /**
      * 

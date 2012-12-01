@@ -1,4 +1,4 @@
-<%@include file = "validarSession.jsp" %>
+<%@include file = "validarSesion.jsp" %>
 
 
 <%@page contentType="text/html"%>
