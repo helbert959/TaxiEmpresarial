@@ -1,18 +1,11 @@
-<%@page import="localhost.webservicetaxyemp.TaxyServicioEntity"%>
+<%@page import="java.util.Collection"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="localhost.webservicetaxyemp.TaxyReservaEntity"%>
 <%@include file="validarSesion.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
-
-
-<%@page
-    import="pe.edu.upc.dsd.taxiempresarial.controller.EmpresaController"%>
-    <%@page
-        import="java.util.*, pe.edu.upc.dsd.taxiempresarial.model.Empresa"%>
-        <%@page
-            import="java.util.*, pe.edu.upc.dsd.taxiempresarial.model.ServicioRuta"%>
 
             <html>
 
@@ -33,11 +26,12 @@
                                   </div>
                                 <table width="589" height="89" border="1">
                                     <tr>
-                                        <td>Cod. Servicio</td>
+                                        <td>Cod. Reserva</td>
+                                        <td>Fecha Reserva</td>
                                         <td>Ruta Inicio</td>
                                         <td>Ruta Fin</td>
                                         <td>Costo Ruta</td>
-                                        <td>Fecha Servicio</td>
+                                        <td>Estado</td>
                                     </tr>
                                     
                                     <%-- start web service invocation --%>

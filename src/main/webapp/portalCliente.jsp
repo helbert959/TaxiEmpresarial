@@ -46,9 +46,9 @@
 								</li>
 								<!--<li><a href="consultadisponibilidad?opcion=0" target="content-content"><span>Eliminar Reserva</span></a></li>-->
 								<!--<li><a href="logServicio.do" target="content-content"><span>Confirma Servicio </span></a></li>
-  <li><a href="#"><span>Reportes</span></a></li>-->
+  <li><a href="#"><span>Reportes</span></a></li>-->             <li><a href="<%=request.getContextPath() %>/encuesta/getCalificaciones"><span>Calificar Servicios</span></a></li>
 								<li><a href="#"><span>Contáctanos</span></a></li>
-								<li><a href="calificarSericioTaxi.jsp"><span>Calificar Servicios</span></a></li>
+								
 							</ul>
 						</div>
 					</div>

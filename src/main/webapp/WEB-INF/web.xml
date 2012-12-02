@@ -1,78 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee" 
-	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
-	version="2.5">
+         xmlns="http://java.sun.com/xml/ns/javaee" 
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+         version="2.5">
 	
-  <display-name>UPCDEW_TaxiEmpresarial_ITaxi_Maven_</display-name>
+    <display-name>UPCDEW_TaxiEmpresarial_ITaxi_Maven_</display-name>
   
-  <servlet>
-    <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>pe.edu.upc.dsd.taxiempresarial.servlet.LoginServlet</servlet-class>
-  </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>pe.edu.upc.dsd.taxiempresarial.servlet.LoginServlet</servlet-class>
+    </servlet>
   
-  <servlet>
-    <servlet-name>LogoutServlet</servlet-name>
-    <servlet-class>pe.edu.upc.dsd.taxiempresarial.servlet.LogoutServlet</servlet-class>
-  </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>pe.edu.upc.dsd.taxiempresarial.servlet.LogoutServlet</servlet-class>
+    </servlet>
   
-  <servlet>
-    <servlet-name>PortalServlet</servlet-name>
-    <servlet-class>pe.edu.upc.dsd.taxiempresarial.servlet.PortalServlet</servlet-class>
-  </servlet>  
+    <servlet>
+        <servlet-name>PortalServlet</servlet-name>
+        <servlet-class>pe.edu.upc.dsd.taxiempresarial.servlet.PortalServlet</servlet-class>
+    </servlet>  
   
-  <servlet>
-    <servlet-name>ConsultarServicioServlet</servlet-name>
-    <servlet-class>pe.edu.upc.dsd.taxiempresarial.servlet.ConsultarServicioServlet</servlet-class>
-  </servlet> 
+    <servlet>
+        <servlet-name>ConsultarServicioServlet</servlet-name>
+        <servlet-class>pe.edu.upc.dsd.taxiempresarial.servlet.ConsultarServicioServlet</servlet-class>
+    </servlet> 
   
-  <servlet>
-    <servlet-name>SeleccionarServicioServlet</servlet-name>
-    <servlet-class>pe.edu.upc.dsd.taxiempresarial.servlet.SeleccionarServicioServlet</servlet-class>
-  </servlet> 
+    <servlet>
+        <servlet-name>SeleccionarServicioServlet</servlet-name>
+        <servlet-class>pe.edu.upc.dsd.taxiempresarial.servlet.SeleccionarServicioServlet</servlet-class>
+    </servlet> 
   
-  <servlet>
-    <servlet-name>ConsultarReservaServlet</servlet-name>
-    <servlet-class>pe.edu.upc.dsd.taxiempresarial.servlet.ConsultarReservaServlet</servlet-class>
-  </servlet> 
+    <servlet>
+        <servlet-name>ConsultarReservaServlet</servlet-name>
+        <servlet-class>pe.edu.upc.dsd.taxiempresarial.servlet.ConsultarReservaServlet</servlet-class>
+    </servlet> 
      
-  <servlet-mapping>
-    <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/LoginServlet</url-pattern>
-  </servlet-mapping>
+    <servlet>
+        <servlet-name>CancelarReservaServlet</servlet-name>
+        <servlet-class>pe.edu.upc.dsd.taxiempresarial.servlet.CancelarReservaServlet</servlet-class>
+    </servlet>
+  
+    <servlet>
+        <servlet-name>spring</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+        
+    <servlet-mapping>
+        <servlet-name>spring</servlet-name>
+        <url-pattern>/encuesta/*</url-pattern>
+    </servlet-mapping>
+  
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
      
-  <servlet-mapping>
-    <servlet-name>LogoutServlet</servlet-name>
-    <url-pattern>/LogoutServlet</url-pattern>
-  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet</url-pattern>
+    </servlet-mapping>
   
-  <servlet-mapping>
-    <servlet-name>PortalServlet</servlet-name>
-    <url-pattern>/PortalServlet</url-pattern>
-  </servlet-mapping> 
+    <servlet-mapping>
+        <servlet-name>PortalServlet</servlet-name>
+        <url-pattern>/PortalServlet</url-pattern>
+    </servlet-mapping> 
   
-  <servlet-mapping>
-    <servlet-name>ConsultarServicioServlet</servlet-name>
-    <url-pattern>/ConsultarServicioServlet</url-pattern>
-  </servlet-mapping> 
+    <servlet-mapping>
+        <servlet-name>ConsultarServicioServlet</servlet-name>
+        <url-pattern>/ConsultarServicioServlet</url-pattern>
+    </servlet-mapping> 
   
-  <servlet-mapping>
-    <servlet-name>SeleccionarServicioServlet</servlet-name>
-    <url-pattern>/SeleccionarServicioServlet</url-pattern>
-  </servlet-mapping> 
+    <servlet-mapping>
+        <servlet-name>SeleccionarServicioServlet</servlet-name>
+        <url-pattern>/SeleccionarServicioServlet</url-pattern>
+    </servlet-mapping> 
   
-  <servlet-mapping>
-    <servlet-name>ConsultarReservaServlet</servlet-name>
-    <url-pattern>/ConsultarReservaServlet</url-pattern>
-  </servlet-mapping> 
+    <servlet-mapping>
+        <servlet-name>ConsultarReservaServlet</servlet-name>
+        <url-pattern>/ConsultarReservaServlet</url-pattern>
+    </servlet-mapping> 
   
-  <session-config>
-    <session-timeout>30</session-timeout>
-  </session-config>
+    <servlet-mapping>
+        <servlet-name>CancelarReservaServlet</servlet-name>
+        <url-pattern>/CancelarReservaServlet</url-pattern>
+    </servlet-mapping> 
   
-  <welcome-file-list>
-    <welcome-file>login.jsp</welcome-file>
-  </welcome-file-list>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+  
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+  
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
   
 </web-app>
