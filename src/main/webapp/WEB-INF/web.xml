@@ -26,7 +26,17 @@
     <servlet-name>ConsultarServicioServlet</servlet-name>
     <servlet-class>pe.edu.upc.dsd.taxiempresarial.servlet.ConsultarServicioServlet</servlet-class>
   </servlet> 
-   
+  
+  <servlet>
+    <servlet-name>SeleccionarServicioServlet</servlet-name>
+    <servlet-class>pe.edu.upc.dsd.taxiempresarial.servlet.SeleccionarServicioServlet</servlet-class>
+  </servlet> 
+  
+  <servlet>
+    <servlet-name>ConsultarReservaServlet</servlet-name>
+    <servlet-class>pe.edu.upc.dsd.taxiempresarial.servlet.ConsultarReservaServlet</servlet-class>
+  </servlet> 
+     
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
@@ -47,7 +57,15 @@
     <url-pattern>/ConsultarServicioServlet</url-pattern>
   </servlet-mapping> 
   
-
+  <servlet-mapping>
+    <servlet-name>SeleccionarServicioServlet</servlet-name>
+    <url-pattern>/SeleccionarServicioServlet</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet-mapping>
+    <servlet-name>ConsultarReservaServlet</servlet-name>
+    <url-pattern>/ConsultarReservaServlet</url-pattern>
+  </servlet-mapping> 
   
   <session-config>
     <session-timeout>30</session-timeout>

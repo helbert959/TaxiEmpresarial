@@ -1,5 +1,5 @@
 
-package pe.edu.upc.dsd.taxiempresarial.wsdlservice;
+package localhost.webservicetaxyemp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,16 +10,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for ArrayOfTaxyServicioEntity complex type.
+ * <p>Java class for ArrayOfTaxyReservaEntity complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="ArrayOfTaxyServicioEntity">
+ * &lt;complexType name="ArrayOfTaxyReservaEntity">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="TaxyServicioEntity" type="{http://localhost/WebServiceTaxyEmp}TaxyServicioEntity" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="TaxyReservaEntity" type="{http://localhost/WebServiceTaxyEmp}TaxyReservaEntity" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,41 +29,41 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ArrayOfTaxyServicioEntity", propOrder = {
-    "taxyServicioEntity"
+@XmlType(name = "ArrayOfTaxyReservaEntity", propOrder = {
+    "taxyReservaEntity"
 })
-public class ArrayOfTaxyServicioEntity {
+public class ArrayOfTaxyReservaEntity {
 
-    @XmlElement(name = "TaxyServicioEntity", nillable = true)
-    protected List<TaxyServicioEntity> taxyServicioEntity;
+    @XmlElement(name = "TaxyReservaEntity", nillable = true)
+    protected List<TaxyReservaEntity> taxyReservaEntity;
 
     /**
-     * Gets the value of the taxyServicioEntity property.
+     * Gets the value of the taxyReservaEntity property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the taxyServicioEntity property.
+     * This is why there is not a <CODE>set</CODE> method for the taxyReservaEntity property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getTaxyServicioEntity().add(newItem);
+     *    getTaxyReservaEntity().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link TaxyServicioEntity }
+     * {@link TaxyReservaEntity }
      * 
      * 
      */
-    public List<TaxyServicioEntity> getTaxyServicioEntity() {
-        if (taxyServicioEntity == null) {
-            taxyServicioEntity = new ArrayList<TaxyServicioEntity>();
+    public List<TaxyReservaEntity> getTaxyReservaEntity() {
+        if (taxyReservaEntity == null) {
+            taxyReservaEntity = new ArrayList<TaxyReservaEntity>();
         }
-        return this.taxyServicioEntity;
+        return this.taxyReservaEntity;
     }
 
 }

@@ -156,20 +156,20 @@
 				<artifactId>jaxws-maven-plugin</artifactId>
 				<version>2.2</version>
 				<executions>
-					<execution>
-						<goals>
-							<goal>wsimport</goal>
-						</goals>
-						<configuration>
-							<wsdlFiles>
-								<wsdlFile>localhost_3779/ServicioWeb.asmx.wsdl</wsdlFile>
-							</wsdlFiles>
-							<wsdlLocation>http://localhost:3779/ServicioWeb.asmx?wsdl</wsdlLocation>
-							<staleFile>${project.build.directory}/jaxws/stale/ServicioWeb.asmx.stale</staleFile>
-						</configuration>
-						<id>wsimport-generate-ServicioWeb.asmx</id>
-						<phase>generate-sources</phase>
-					</execution>
+				 <execution>
+				  <goals>
+				   <goal>wsimport</goal>
+				  </goals>
+				  <configuration>
+				   <wsdlFiles>
+				    <wsdlFile>localhost_3779/ServicioWeb.asmx.wsdl</wsdlFile>
+				   </wsdlFiles>
+				   <wsdlLocation>http://localhost:3779/ServicioWeb.asmx?wsdl</wsdlLocation>
+				   <staleFile>${project.build.directory}/jaxws/stale/ServicioWeb.asmx.stale</staleFile>
+				  </configuration>
+				  <id>wsimport-generate-ServicioWeb.asmx</id>
+				  <phase>generate-sources</phase>
+				 </execution>
 				</executions>
 				<dependencies>
 					<dependency>

@@ -1,5 +1,5 @@
 
-package pe.edu.upc.dsd.taxiempresarial.wsdlservice;
+package localhost.webservicetaxyemp;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

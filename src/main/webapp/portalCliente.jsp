@@ -41,14 +41,14 @@
 								<li><a href="consultarServicioTaxi.jsp"
 									target="content-content"><span>Reserva de Taxi</span></a></li>
 								<!--<a href="Sede1.do?accion=listar" target="content-content">-->
-								<li><a href="ConsultarReservas.jsp"
+								<li><a href="<%=request.getContextPath() %>/ConsultarReservaServlet"
 									target="content-content"><span>Consulta de Reservas</span></a>
 								</li>
 								<!--<li><a href="consultadisponibilidad?opcion=0" target="content-content"><span>Eliminar Reserva</span></a></li>-->
 								<!--<li><a href="logServicio.do" target="content-content"><span>Confirma Servicio </span></a></li>
   <li><a href="#"><span>Reportes</span></a></li>-->
 								<li><a href="#"><span>Contáctanos</span></a></li>
-								<li><a href="#"><span>Recursos</span></a></li>
+								<li><a href="calificarSericioTaxi.jsp"><span>Calificar Servicios</span></a></li>
 							</ul>
 						</div>
 					</div>

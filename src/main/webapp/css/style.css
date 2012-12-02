@@ -464,6 +464,15 @@ a.more:hover {
         margin-bottom: 10px;
 }
 
+#form-login #login-comment #conforme-img {
+        background: url("../images/conforme.png");
+        height: 108px;
+        width: 108px;
+        float: left;
+        margin-bottom: 10x;
+        align: center;
+}
+
 #form-login #login-comment #secure-message {
     float: left;
 }

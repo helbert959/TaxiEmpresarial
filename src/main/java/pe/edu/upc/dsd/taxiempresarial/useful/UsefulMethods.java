@@ -10,14 +10,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import pe.edu.upc.dsd.taxiempresarial.wsdlservice.WebServiceTaxyEmpSoap;
+import localhost.webservicetaxyemp.WebServiceTaxyEmpSoap;
 
 public final class UsefulMethods {
 
     public WebServiceTaxyEmpSoap callWebService() {
         // Call Web Service Operation
-        pe.edu.upc.dsd.taxiempresarial.wsdlservice.WebServiceTaxyEmp service = new pe.edu.upc.dsd.taxiempresarial.wsdlservice.WebServiceTaxyEmp();
-        pe.edu.upc.dsd.taxiempresarial.wsdlservice.WebServiceTaxyEmpSoap port = service.getWebServiceTaxyEmpSoap();
+        localhost.webservicetaxyemp.WebServiceTaxyEmp service = new localhost.webservicetaxyemp.WebServiceTaxyEmp();
+        localhost.webservicetaxyemp.WebServiceTaxyEmpSoap port = service.getWebServiceTaxyEmpSoap();
         return port;
     }
     

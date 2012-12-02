@@ -9,52 +9,43 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
+import localhost.webservicetaxyemp.ArrayOfTaxyReservaEntity;
+import localhost.webservicetaxyemp.TaxyReservaEntity;
 import localhost.webservicetaxyemp.TaxyServicioEntity;
 
 import pe.edu.upc.dsd.taxiempresarial.useful.UsefulMethods;
 import localhost.webservicetaxyemp.WebServiceTaxyEmpSoap;
+import pe.edu.upc.dsd.taxiempresarial.model.Usuario;
 
-public class ConsultarServicioServlet extends HttpServlet {
+public class ConsultarReservaServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    public ConsultarServicioServlet() {
+    public ConsultarReservaServlet() {
         super();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         this.processRequest(request, response);
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        this.processRequest(request, response);
-
+        
         UsefulMethods useful = new UsefulMethods();
 
         try {
-            String codEmp = request.getParameter("cboEmpresa").substring(0, 1);
-            String fecha = request.getParameter("cboDia") + "-"
-                    + request.getParameter("cboMes") + "-"
-                    + request.getParameter("cboAnio");
-
-
             WebServiceTaxyEmpSoap port = useful.callWebService();
 
-            GregorianCalendar date1 = new GregorianCalendar();
-
-            date1.setTime(useful.fromStringToDate(fecha));	//'dd-mm-aaaa'
-            XMLGregorianCalendar date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(date1);
-
-            localhost.webservicetaxyemp.ArrayOfTaxyServicioEntity listaArray = port.consultarServicioRutaDisponiblePorDia(date2, Integer.parseInt(codEmp));
-
-            Collection<TaxyServicioEntity> servicios = listaArray.getTaxyServicioEntity();
+            HttpSession session = request.getSession();
+            Usuario usuario_actual = (Usuario)session.getAttribute("USUARIO_ACTUAL");
             
-            request.setAttribute("SERVICIOS", servicios);
-            RequestDispatcher rd = request.getRequestDispatcher("/consultarServicioTaxi.jsp");
+            ArrayOfTaxyReservaEntity listaArray = port.consultarServicioRutaDisponiblePorUsuario(usuario_actual.getCod_user());
+
+            Collection<TaxyReservaEntity> reservas = listaArray.getTaxyReservaEntity();
+            
+            request.setAttribute("RESERVAS", reservas);
+            RequestDispatcher rd = request.getRequestDispatcher("/consultarReservaTaxi.jsp");
             rd.forward(request, response);
 
             } 		
@@ -65,7 +56,14 @@ public class ConsultarServicioServlet extends HttpServlet {
         }
     }
 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        this.processRequest(request, response);        
+    }
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	
+    	
     }
 }

@@ -5,7 +5,7 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import static org.junit.Assert.*;
 
-import pe.edu.upc.dsd.taxiempresarial.wsdlservice.WebServiceTaxyEmpSoap;
+import localhost.webservicetaxyemp.WebServiceTaxyEmpSoap;
 
 import org.junit.Test;
 
@@ -32,13 +32,15 @@ public class ServiceTest {
             date1.setTime(useful.fromStringToDate("01-12-2012"));	//'dd-mm-aaaa'
             XMLGregorianCalendar date2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(date1);
 
-            int codEmp = 1;
-            pe.edu.upc.dsd.taxiempresarial.wsdlservice.ArrayOfTaxyServicioEntity result = port.consultarServicioRutaDisponiblePorDia(date2, codEmp);
+            int codEmp = 4;
+            localhost.webservicetaxyemp.ArrayOfTaxyServicioEntity result = port.consultarServicioRutaDisponiblePorDia(date2, codEmp);
 
-            assertEquals(4, result.getTaxyServicioEntity().size());
+            assertEquals(6, result.getTaxyServicioEntity().size());
             
         } catch (Exception ex) {
-        }        
+        } 
+        
+        
     }
     
     @Test
@@ -64,9 +66,9 @@ public class ServiceTest {
 
             int codUser = 3;
 
-            pe.edu.upc.dsd.taxiempresarial.wsdlservice.ArrayOfTaxyReservaEntity result = port.consultarServicioRutaDisponiblePorUsuario(codUser);
+            localhost.webservicetaxyemp.ArrayOfTaxyReservaEntity result = port.consultarServicioRutaDisponiblePorUsuario(codUser);
 
-            assertEquals(1, result.getTaxyReservaEntity().size());
+            assertEquals(4, result.getTaxyReservaEntity().size());
 
         } catch (Exception ex) {
         }

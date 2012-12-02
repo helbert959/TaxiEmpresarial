@@ -1,5 +1,5 @@
 
-package pe.edu.upc.dsd.taxiempresarial.wsdlservice;
+package localhost.webservicetaxyemp;
 
 import java.net.MalformedURLException;
 import java.net.URL;
